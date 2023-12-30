@@ -82,14 +82,8 @@ export const signUp = async (
         message: 'Recruiter with this email already exists',
       });
     }
-    const comapnyId: string = await constructCompany(req);
-    if (comapnyId == '404') {
-      return res.status(400).json({
-        status: 400,
-        message: 'Company does not exist',
-      });
-    }
-    if (!comapnyId) {
+    const comapnyId: any = await constructCompany(req);
+    if (!comapnyId || comapnyId==null) {
       return res.status(400).json({
         status: 400,
         message:
@@ -206,7 +200,7 @@ const constructCompany = async (req: TypedRequestBody<signUpRequest>) => {
     if (hasCompany) {
       return hasCompany.company_id;
     } else {
-      return '404';
+      return null;
     }
   }
   if (hasCompany) {
