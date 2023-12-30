@@ -8,10 +8,43 @@ dotenv.config();
 const app: Express = express();
 const port = process.env.PORT || 3000;
 
-app.use("/api/v1/users", authApp)
+app.use(express.json());
 
-app.get("/", (req: Request, res: Response) => {
-  res.send("Express & TypeScript Server");
+app.use("/api/v1/users", authApp);
+
+app.get("*", (req, res) => {
+  res.status(404).json({
+    status: 404,
+    message: "Page not found",
+  });
+});
+
+app.post("*", (req, res) => {
+  res.status(404).json({
+    status: 404,
+    message: "Page not found",
+  });
+});
+
+app.patch("*", (req, res) => {
+  res.status(404).json({
+    status: 404,
+    message: "Page not found",
+  });
+});
+
+app.put("*", (req, res) => {
+  res.status(404).json({
+    status: 404,
+    message: "Page not found",
+  });
+});
+
+app.delete("*", (req, res) => {
+  res.status(404).json({
+    status: 404,
+    message: "Page not found",
+  });
 });
 
 mongoConnection();

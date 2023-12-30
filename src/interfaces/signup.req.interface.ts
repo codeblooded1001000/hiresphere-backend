@@ -8,5 +8,14 @@ export interface signUpRequest {
   gst_no: string,
   name: string,
   is_recruiter: boolean,
-  id_admin: boolean
+  is_admin: boolean,
+  resume_link: string,
+  company_logo: string,
+  comapny_address_line1: string,
+  comapny_address_line2: string,
+  comapny_address_line3: string,
+  country: string,
+  company_size: string,
+  is_company_already_exists: boolean,
+  role: string
 }

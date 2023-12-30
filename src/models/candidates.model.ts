@@ -1,38 +1,35 @@
 import mongoose from "mongoose";
 
-const recruiterSchema = new mongoose.Schema({
-    recruiter_id: {
+const candidateSchema = new mongoose.Schema({
+    candidate_id: {
       type: String,
       unique: true,
       required: true
     },
-    recruiter_name: {
+    candidate_name: {
       type: String,
       required: true
     },
-    company_id: {
-      type: String
-    },
-    recruiter_email: {
+    candidate_email: {
       type: String
     },
     password: {
       type: String,
       required: true
     },
-    is_admin: {
-      type: Boolean,
-      required: true
-    },
     is_deleted: {
       type: Boolean,
       default: false
     },
-    recruiter_contact: {
+    candidate_contact: {
       type: String
     },
     isd_code: {
       type: String
+    },
+    resume: {
+      type: String,
+      required: true
     },
     created_at: {
       type: Date,
@@ -41,12 +38,9 @@ const recruiterSchema = new mongoose.Schema({
     updated_at: {
       type: Date,
       default: Date.now()
-    },
-    role: {
-      type: String,
     }
-}, {versionKey:false});
+}, {versionKey: false});
 
-const Recruiter = mongoose.model("recruiters", recruiterSchema);
+const Candidate = mongoose.model("candidates", candidateSchema);
 
-export default Recruiter;
+export default Candidate;
