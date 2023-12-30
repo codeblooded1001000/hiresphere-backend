@@ -50,7 +50,7 @@ export const login = async (
     return res.status(201).json({
       status: 201,
       message: `${
-        req.body.is_recruiter ? 'Recruiter' : 'Candiadte'
+        req.body.is_recruiter ? 'Recruiter' : 'Candidate'
       } Logged in successfully`,
       data: {
         id,
