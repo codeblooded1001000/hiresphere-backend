@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from 'express';
 import { TypedRequestBody } from '../interfaces/requests.interfaces';
-import { signUpRequest } from '../interfaces/signup.req.interface';
+import { signUpRequest } from '../interfaces/recruiter.signup.req.interface';
 import Recruiter from '../models/recruiters.model';
 import bcryptjs from 'bcryptjs';
 import Company from '../models/companies.model';
@@ -8,6 +8,7 @@ import { randomUUID } from 'crypto';
 import Candidate from '../models/candidates.model';
 import { generateJwt } from '../middlewares/jwt';
 import { loginBody } from '../interfaces/login.req.interface';
+
 
 export const login = async (
   req: TypedRequestBody<loginBody>,
@@ -30,7 +31,7 @@ export const login = async (
 
   if (!user) {
     return res.status(404).json({
-      status: 400,
+      status: 404,
       message: 'User not found',
     });
   }
